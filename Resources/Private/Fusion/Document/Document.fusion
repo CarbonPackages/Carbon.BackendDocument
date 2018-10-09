@@ -1,0 +1,105 @@
+prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
+    singleline = true
+    content = null
+    style = null
+    title = ${q(node).property('title')}
+    namespace = 'carbon-backend'
+
+    // Inkl. Tags
+    javascripts = null
+    frontendRedirect = Neos.Fusion:RawArray {
+        node = ${q(documentNode).parent().get(0)}
+        statusCode = 301
+    }
+
+    neosBackendHead = Neos.Fusion:Array {
+        @if.inBackend = ${documentNode.context.inBackend}
+        javascriptBackendInformation = Neos.Neos.Ui:RenderConfiguration {
+            path = 'documentNodeInformation'
+            context {
+                documentNode = ${documentNode}
+                site = ${site}
+            }
+            @position = 'after javascripts'
+            @process.json = ${Json.stringify(value)}
+            @process.wrapInJsObject = ${'<script>window[\'@Neos.Neos.Ui:DocumentInformation\']=' + value + '</script>'}
+            @if.inBackend = ${documentNode.context.inBackend}
+            @cache {
+                mode = 'cached'
+                entryIdentifier {
+                    jsBackendInfo = 'javascriptBackendInformation'
+                    documentNode = ${documentNode}
+                    inBackend = ${documentNode.context.inBackend}
+                }
+                entryTags {
+                    1 = ${Neos.Caching.nodeTag(documentNode)}
+                    2 = ${Neos.Caching.descendantOfTag(documentNode)}
+                }
+            }
+        }
+        guestFrameApplication = Neos.Fusion:Template {
+            templatePath = 'resource://Neos.Neos.Ui/Private/Templates/Backend/Guest.html'
+            compiledResourcePackage = ${Neos.Ui.StaticResources.compiledResourcePackage()}
+            sectionName = 'guestFrameApplication'
+        }
+    }
+    neosUiNonRenderedNodeMetadata = Neos.Neos.Ui:RenderNonRenderedNodeMetadata {
+        @class = 'Neos\\Neos\\Ui\\Fusion\\RenderNonRenderedNodeMetadataImplementation'
+        @if.inBackend = ${node.context.inBackend}
+        node = ${node}
+    }
+
+    renderer = Neos.Fusion:Case {
+        isLive {
+            condition = ${node.context.live && props.frontendRedirect.node}
+            renderer = Neos.Fusion:Http.Message {
+                httpResponseHead {
+                    statusCode = ${props.frontendRedirect.statusCode}
+                    headers.Location = Neos.Neos:NodeUri {
+                      node = ${props.frontendRedirect.node}
+                    }
+                }
+            }
+        }
+        default {
+            condition = true
+            renderer = Neos.Fusion:Http.Message {
+                doctype = '<!DOCTYPE html>'
+                markup = afx`
+                    <html class='-backend -js'>
+                        <head>
+                            <meta charset='UTF-8' />
+                            <title>{props.title}</title>
+                            {props.neosBackendHead}
+                            <style>
+                                {Carbon.FileContent.path('Carbon.BackendDocument/Private/Fusion/Document/Document.css')}
+                                {props.style ? props.style : ''}
+                            </style>
+                        </head>
+                        <body class={props.namespace + ' neos-backend'}>
+                            <div class={props.namespace + '--content' + (props.singleline ? '-single' : '')}>
+                                {props.content}
+                            </div>
+                            {props.javascripts}
+                            <div id='neos-new-backend-container' @if.inBackend={node.context.inBackend}></div>
+                            <Neos.Fusion:Template templatePath='resource://Neos.Neos.Ui/Private/Templates/Backend/GuestNotificationScript.html' @if.inBackend={node.context.inBackend} />
+                            {props.neosUiNonRenderedNodeMetadata}
+                        </body>
+                    </html>
+                `
+            }
+        }
+    }
+
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            documentNode = ${node}
+        }
+        entryTags {
+            1 = ${'Node_' + node.identifier}
+        }
+    }
+
+    @exceptionHandler = 'Neos\\Neos\\Fusion\\ExceptionHandlers\\PageHandler'
+}

@@ -1,0 +1,50 @@
+.carbon-backend,
+.carbon-backend * {
+    box-sizing: border-box;
+}
+
+.neos-backend {
+    box-sizing: border-box;
+    margin: 0;
+    background: #323232;
+    color: #fff;
+    font-family: "Noto Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 30px 15px;
+    position: relative;
+    min-height: 100vh;
+}
+
+.carbon-backend--content-single {
+    position: relative;
+    margin: 0 auto;
+    max-width: 500px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    text-align: center;
+    top: calc(50vh - 30px);
+    /* minus padding */
+}
+
+.carbon-backend h1,
+.carbon-backend h2,
+.carbon-backend h3,
+.carbon-backend h4,
+.carbon-backend h5,
+.carbon-backend h6 {
+    color: inherit;
+}
+
+.carbon-backend hr:not([class]) {
+    color: #3f3f3f;
+}
+
+.carbon-backend a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.carbon-backend a:hover,
+.carbon-backend a:focus {
+    text-decoration: underline;
+}

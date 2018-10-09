@@ -1,0 +1,47 @@
+{
+    "name": "carbon/backenddocument",
+    "type": "neos-carbon",
+    "description": "A small Fusion prototype to create nice only-backend documents",
+    "license": "MIT",
+    "keywords": [
+        "flow",
+        "neos",
+        "fusion",
+        "helper",
+        "carbon",
+        "backend"
+    ],
+    "require": {
+        "neos/neos": "~3.3 || ~4.0",
+        "carbon/eel": "^1.2"
+    },
+    "authors": [
+        {
+            "name": "Jon Uhlmann",
+            "email": "me@jonnitto.ch",
+            "homepage": "https://jonnitto.ch",
+            "role": "Developer"
+        }
+    ],
+    "archive": {
+        "exclude": [
+            ".editorconfig",
+            ".gitattributes",
+            ".github",
+            ".gitignore",
+            "CODE_OF_CONDUCT.md"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "Carbon\\BackendDocument\\": "Classes"
+        }
+    },
+    "extra": {
+        "marketplace-account": "me@jonnitto.ch",
+        "installer-name": "Carbon.BackendDocument",
+        "neos": {
+            "package-key": "Carbon.BackendDocument"
+        }
+    }
+}
