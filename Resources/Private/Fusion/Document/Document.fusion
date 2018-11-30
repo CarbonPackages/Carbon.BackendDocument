@@ -9,6 +9,8 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
     javascripts = null
     frontendRedirect = Neos.Fusion:RawArray {
         node = ${q(documentNode).parent().get(0)}
+        section = null
+        additionalParams = null
         statusCode = 301
     }
 
@@ -57,6 +59,8 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
                     statusCode = ${props.frontendRedirect.statusCode}
                     headers.Location = Neos.Neos:NodeUri {
                       node = ${props.frontendRedirect.node}
+                      section = ${props.frontendRedirect.section}
+                      additionalParams = ${props.frontendRedirect.additionalParams || []}
                     }
                 }
             }
