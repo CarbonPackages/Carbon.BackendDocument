@@ -103,7 +103,7 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
             documentNode = ${node}
         }
         entryTags {
-            1 = ${'Node_' + node.identifier}
+            1 = ${Neos.Caching.nodeTag(node)}
         }
     }
 
