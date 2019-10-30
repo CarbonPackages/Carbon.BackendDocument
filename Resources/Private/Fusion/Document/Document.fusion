@@ -77,7 +77,7 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
                             <title>{props.title}</title>
                             {props.neosBackendHead}
                             <style>
-                                {Carbon.FileContent.path('Carbon.BackendDocument/Private/Fusion/Document/Document.css')}
+                                {File.readFile('resource://Carbon.BackendDocument/Private/Fusion/Document/Document.css')}
                                 {props.style ? props.style : ''}
                             </style>
                             {props.headTags}
