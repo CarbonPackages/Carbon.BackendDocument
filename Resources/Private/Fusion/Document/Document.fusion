@@ -2,6 +2,7 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
     singleline = true
     content = null
     style = null
+    headTags = null
     title = ${q(node).property('title')}
     namespace = 'carbon-backend'
 
@@ -79,6 +80,7 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
                                 {Carbon.FileContent.path('Carbon.BackendDocument/Private/Fusion/Document/Document.css')}
                                 {props.style ? props.style : ''}
                             </style>
+                            {props.headTags}
                         </head>
                         <body class={props.namespace + ' neos-backend'}>
                             <div class={props.namespace + '--content' + (props.singleline ? '-single' : '')}>
