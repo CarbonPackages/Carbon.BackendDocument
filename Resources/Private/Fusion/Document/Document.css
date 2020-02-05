@@ -1,3 +1,8 @@
+html.-backend,
+body.neos-backend {
+    height: 100%;
+}
+
 .carbon-backend,
 .carbon-backend * {
     box-sizing: border-box;
@@ -12,18 +17,18 @@
     -webkit-font-smoothing: antialiased;
     padding: 30px 15px;
     position: relative;
-    min-height: 100vh;
 }
 
 .carbon-backend--content-single {
     position: relative;
     margin: 0 auto;
     max-width: 500px;
-    transform: translateY(-50%);
     font-size: 22px;
     text-align: center;
-    top: calc(50vh - 30px);
-    /* minus padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .carbon-backend h1,
@@ -46,5 +51,6 @@
 
 .carbon-backend a:hover,
 .carbon-backend a:focus {
+    color: inherit;
     text-decoration: underline;
 }
