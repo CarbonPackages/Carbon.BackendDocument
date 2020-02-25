@@ -71,7 +71,7 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
             renderer = Neos.Fusion:Http.Message {
                 doctype = '<!DOCTYPE html>'
                 markup = afx`
-                    <html class='-backend -js'>
+                    <html class={['-backend -js', props.singleline ? '-full-height': null]}>
                         <head>
                             <meta charset='UTF-8' />
                             <title>{props.title}</title>
@@ -82,7 +82,7 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
                             </style>
                             {props.headTags}
                         </head>
-                        <body class={props.namespace + ' neos-backend'}>
+                        <body class={[props.namespace, 'neos-backend', props.singleline ? '-full-height': null]}>
                             <div class={props.namespace + '--content' + (props.singleline ? '-single' : '')}>
                                 {props.content}
                             </div>
