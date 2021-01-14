@@ -23,10 +23,8 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
                 documentNode = ${documentNode}
                 site = ${site}
             }
-            @position = 'after javascripts'
             @process.json = ${Json.stringify(value)}
             @process.wrapInJsObject = ${'<script>window[\'@Neos.Neos.Ui:DocumentInformation\']=' + value + '</script>'}
-            @if.inBackend = ${documentNode.context.inBackend}
             @cache {
                 mode = 'cached'
                 entryIdentifier {
@@ -87,7 +85,7 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
                                 {props.content}
                             </div>
                             {props.javascripts}
-                            <div id='neos-new-backend-container' @if.inBackend={node.context.inBackend}></div>
+                            <div id='neos-backend-container' @if.inBackend={node.context.inBackend}></div>
                             <Neos.Fusion:Template templatePath='resource://Neos.Neos.Ui/Private/Templates/Backend/GuestNotificationScript.html' @if.inBackend={node.context.inBackend} />
                             {props.neosUiNonRenderedNodeMetadata}
                         </body>
@@ -107,5 +105,5 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
         }
     }
 
-    @exceptionHandler = 'Neos\\Neos\\Fusion\\ExceptionHandlers\\PageHandler'
+    @exceptionHandler = 'Neos\\Neos\\Ui\\Fusion\\ExceptionHandler\\PageExceptionHandler'
 }

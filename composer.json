@@ -12,8 +12,8 @@
         "backend"
     ],
     "require": {
-        "neos/neos": "^4.0 || ^5.0 || ^7.0",
-        "neos/fusion-afx": "^1.1 || ^7.0"
+        "neos/neos": "^7.0",
+        "neos/fusion-afx": "^7.0"
     },
     "authors": [
         {
