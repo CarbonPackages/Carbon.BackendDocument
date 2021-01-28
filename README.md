@@ -11,8 +11,15 @@ A small Fusion prototype to create nice only-backend documents.
 
 ## Installation
 
-`Carbon.BackendDocument` is available via packagist. Add `"carbon/backenddocument" : "^1.0"`
-to the require section of your composer.json or run `composer require carbon/backenddocument`.
+`Carbon.BackendDocument` is available via packagist.  
+Run the following command in your site package
+
+```bash
+composer require --no-update carbon/backenddocument
+```
+
+Then run `composer update` in your project root.
+
 
 ## Usage of `Carbon.BackendDocument:Document`
 
