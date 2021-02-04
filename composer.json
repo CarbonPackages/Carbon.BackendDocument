@@ -2,7 +2,7 @@
     "name": "carbon/backenddocument",
     "type": "neos-carbon",
     "description": "A small Fusion prototype to create nice only-backend documents",
-    "license": "MIT",
+    "license": "GPL-3.0",
     "keywords": [
         "flow",
         "neos",
