@@ -11,7 +11,6 @@ label.carbon-backenddocument-editable__label {
 .carbon-backenddocument-editable__selectplaceholder,
 .carbon-backenddocument-editable__input + [contenteditable],
 .carbon-backenddocument-editable__select + [contenteditable],
-.carbon-backenddocument-editable__textarea + [contenteditable],
 .carbon-backenddocument-editable__radio + [contenteditable] {
     display: none !important;
 }
@@ -24,25 +23,23 @@ label.carbon-backenddocument-editable__label {
     background: #01adee;
 }
 
-.carbon-backenddocument-editable__input,
 .carbon-backenddocument-editable__select,
-.carbon-backenddocument-editable [contenteditable] {
+.carbon-backenddocument-editable [contenteditable],
+.carbon-backenddocument-editable__input > textarea {
     display: block;
     width: 100%;
 }
 
-.carbon-backenddocument-editable__input,
-.carbon-backenddocument-editable__textarea > textarea {
+.carbon-backenddocument-editable__input > textarea {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
 
-.carbon-backenddocument-editable__input,
 .carbon-backenddocument-editable__select,
 .carbon-backenddocument-editable [contenteditable],
-.carbon-backenddocument-editable__textarea > textarea,
-.carbon-backenddocument-editable__textarea::after {
+.carbon-backenddocument-editable__input > textarea,
+.carbon-backenddocument-editable__input::after {
     font: inherit;
     padding: 0;
     margin: 0;
@@ -50,33 +47,36 @@ label.carbon-backenddocument-editable__label {
     box-shadow: none !important;
 }
 
-.carbon-backenddocument-editable__input:hover,
-.carbon-backenddocument-editable__textarea > textarea:hover,
 .carbon-backenddocument-editable__select:hover,
-.carbon-backenddocument-editable__input:focus,
-.carbon-backenddocument-editable__textarea > textarea:focus,
-.carbon-backenddocument-editable__select:focus {
+.carbon-backenddocument-editable__select:focus,
+.carbon-backenddocument-editable__input > textarea:hover,
+.carbon-backenddocument-editable__input > textarea:focus {
     outline-offset: 5px;
     outline: 2px dashed #00adee;
 }
 
-.carbon-backenddocument-editable__textarea {
+.carbon-backenddocument-editable__input {
+    display: -ms-grid;
     display: grid;
 }
 
-.carbon-backenddocument-editable__textarea::after {
+.carbon-backenddocument-editable__input::after {
     content: attr(data-replicated-value) " ";
     white-space: pre-wrap;
     visibility: hidden;
 }
 
-.carbon-backenddocument-editable__textarea > textarea {
+.carbon-backenddocument-editable__input > textarea {
     resize: none;
     overflow: hidden;
 }
 
-.carbon-backenddocument-editable__textarea > textarea,
-.carbon-backenddocument-editable__textarea::after {
+.carbon-backenddocument-editable__input > textarea,
+.carbon-backenddocument-editable__input::after {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
     grid-area: 1 / 1 / 2 / 2;
 }
 

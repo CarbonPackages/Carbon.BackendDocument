@@ -23,19 +23,6 @@
         }, 300);
     }
 
-    function setSelectPlaceholder(editor, select) {
-        setTimeout(function () {
-            const placeholder = editor.dataset.neosPlaceholder;
-            const option = select.querySelector(
-                namespace + "__selectplaceholder"
-            );
-
-            if (placeholder && !option.innerHTML) {
-                option.innerText = placeholder;
-            }
-        }, 300);
-    }
-
     function eachElement(selector, callback) {
         Array.from(document.querySelectorAll(namespace + selector)).forEach(
             function (element) {
@@ -46,7 +33,16 @@
 
     eachElement("__select", function (select) {
         const editor = select.nextElementSibling;
-        setSelectPlaceholder(editor, select);
+        setTimeout(function () {
+            const placeholder = editor.dataset.neosPlaceholder;
+            const option = select.querySelector(
+                namespace + "__selectplaceholder"
+            );
+
+            if (placeholder && !option.innerHTML) {
+                option.innerText = placeholder;
+            }
+        }, 300);
 
         select.addEventListener("input", function () {
             updateValue(editor, this.value);
@@ -60,15 +56,7 @@
         });
     });
 
-    eachElement("__input", function (input) {
-        const editor = input.nextElementSibling;
-        setPlaceholder(editor, input);
-        input.addEventListener("input", function () {
-            updateValue(editor, this.value);
-        });
-    });
-
-    eachElement("__textarea", function (element) {
+    eachElement("__input", function (element) {
         const textarea = element.firstElementChild;
         const editor = element.nextElementSibling;
         element.dataset.replicatedValue = textarea.value;
