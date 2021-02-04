@@ -2,7 +2,15 @@
 
 # Carbon.BackendDocument Package for Neos CMS
 
-A small Fusion prototype to create nice only-backend documents.
+Two small Fusion prototypes to create nice only-backend documents.
+
+| Version | Neos          | Maintained |
+| ------- | ------------- | :--------: |
+| 1.\*    | 3.3.\* - 5.\* |     ✗      |
+| 2.\*    | 4.\* - 5.\*   |     ✗      |
+| 3.\*    | 7.\*          |     ✗      |
+| 4.\*    | 4.3.\* - 5.\* |     ✓      |
+| 5.\*    | 7.\*          |     ✓      |
 
 ## Installation
 
@@ -51,7 +59,7 @@ Be aware! If one elment on a document has set `includeCSS` to true, this get's i
 
 | Value    | Description                                                    |
 | -------- | -------------------------------------------------------------- |
-| `input`  | No linebreaks, no tags, but autogrowing                        |
+| `input`  | No linebreaks, no tags, but autogrowing textfield              |
 | `select` | Select values, uses `options` and `optionGroups` DataStructure |
 | `radio`  | Select values, uses `options` DataStructure                    |
 | `block`  | Default editor, block style                                    |
