@@ -36,6 +36,13 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     // Overwrite the placeholder from the nodetype definition
     placeholder = null
 
+    // Add your own style if you want to override some stylings
+    class = null
+
+    // Inlcude the styling.
+    // Be aware! If one elment on a document has set this to true, this get`s included for the whole document
+    includeCSS = false
+
     // Internal
     block = ${this.type == 'block'}
     value = ${q(this.node).property(this.property)}
@@ -48,8 +55,8 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
 
     renderer = afx`
         {!props.inBackend && props.value ? props.value : ''}
-        <div class='carbon-backenddocument-editable' @if.set={props.inBackend}>
-            <link rel='stylesheet' data-slipstream>
+        <div class={['carbon-backenddocument-editable', props.class]} @if.set={props.inBackend}>
+            <link rel='stylesheet' data-slipstream @if.set={props.includeCSS}>
                 <Neos.Fusion:ResourceUri @path='attributes.href' path='resource://Carbon.BackendDocument/Public/Editable.css' />
             </link>
             <script data-slipstream defer>
