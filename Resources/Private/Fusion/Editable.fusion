@@ -41,7 +41,7 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
 
     // Inlcude the styling.
     // Be aware! If one elment on a document has set this to true, this get`s included for the whole document
-    includeCSS = false
+    includeCSS = true
 
     // Internal
     block = ${this.type == 'block'}
