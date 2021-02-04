@@ -14,15 +14,6 @@
         }
     }
 
-    function setPlaceholder(editor, element) {
-        setTimeout(function () {
-            const placeholder = editor.dataset.neosPlaceholder;
-            if (placeholder && !element.placeholder) {
-                element.placeholder = placeholder;
-            }
-        }, 300);
-    }
-
     function eachElement(selector, callback) {
         Array.from(document.querySelectorAll(namespace + selector)).forEach(
             function (element) {
@@ -59,11 +50,32 @@
     eachElement("__input", function (element) {
         const textarea = element.firstElementChild;
         const editor = element.nextElementSibling;
+        var placeholder = textarea.placeholder;
         element.dataset.replicatedValue = textarea.value;
-        setPlaceholder(editor, textarea);
+
+        if (placeholder && !textarea.value) {
+            element.dataset.replicatedValue = placeholder;
+        }
+
+        if (!placeholder) {
+            setTimeout(function () {
+                const neosPlaceholder = editor.dataset.neosPlaceholder;
+                if (neosPlaceholder) {
+                    placeholder = neosPlaceholder;
+                    textarea.placeholder = placeholder;
+                    if (!textarea.value) {
+                        element.dataset.replicatedValue = placeholder;
+                    }
+                }
+            }, 300);
+        }
+
         textarea.addEventListener("input", function () {
             element.dataset.replicatedValue = this.value;
             updateValue(editor, this.value);
+            if (!this.value) {
+                element.dataset.replicatedValue = placeholder;
+            }
         });
         textarea.addEventListener("keypress", function (event) {
             if (event.keyCode == "13") {
