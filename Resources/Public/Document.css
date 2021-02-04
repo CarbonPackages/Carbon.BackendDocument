@@ -60,21 +60,16 @@
     margin-bottom: 20px;
 }
 
-.carbon-backend .carbon-backenddocument-editable__input,
 .carbon-backend .carbon-backenddocument-editable__select,
 .carbon-backend .carbon-backenddocument-editable [contenteditable],
-.carbon-backend .carbon-backenddocument-editable__textarea > textarea,
-.carbon-backend .carbon-backenddocument-editable__textarea::after {
+.carbon-backend .carbon-backenddocument-editable__input > textarea,
+.carbon-backend .carbon-backenddocument-editable__input::after {
     border-radius: 2px;
     min-height: 40px;
     background: #222;
     color: white;
     line-height: 1.15;
     padding: 0 14px;
-}
-
-.carbon-backend .carbon-backenddocument-editable [contenteditable] {
-    padding: 10px 14px;
 }
 
 .carbon-backend .carbon-backenddocument-editable [contenteditable] p,
@@ -84,14 +79,12 @@
     margin: 0 0 1em;
 }
 
-.carbon-backend .carbon-backenddocument-editable__input:hover,
-.carbon-backend .carbon-backenddocument-editable__textarea > textarea:hover,
+.carbon-backend .carbon-backenddocument-editable__input > textarea:hover,
 .carbon-backend .carbon-backenddocument-editable__select:hover {
     outline: 0;
 }
 
-.carbon-backend .carbon-backenddocument-editable__input:focus,
-.carbon-backend .carbon-backenddocument-editable__textarea > textarea:focus,
+.carbon-backend .carbon-backenddocument-editable__input > textarea:focus,
 .carbon-backend .carbon-backenddocument-editable__select:focus,
 .carbon-backend .carbon-backenddocument-editable .ck-focused {
     outline: 0;
@@ -99,7 +92,8 @@
     color: #141414;
 }
 
-.carbon-backend .carbon-backenddocument-editable__textarea > textarea,
-.carbon-backend .carbon-backenddocument-editable__textarea::after {
+.carbon-backend .carbon-backenddocument-editable [contenteditable],
+.carbon-backend .carbon-backenddocument-editable__input > textarea,
+.carbon-backend .carbon-backenddocument-editable__input::after {
     padding: 10px 14px;
 }
