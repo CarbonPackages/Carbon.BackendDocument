@@ -23,10 +23,8 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
                 documentNode = ${documentNode}
                 site = ${site}
             }
-            @position = 'after javascripts'
             @process.json = ${Json.stringify(value)}
             @process.wrapInJsObject = ${'<script>window[\'@Neos.Neos.Ui:DocumentInformation\']=' + value + '</script>'}
-            @if.inBackend = ${documentNode.context.inBackend}
             @cache {
                 mode = 'cached'
                 entryIdentifier {
