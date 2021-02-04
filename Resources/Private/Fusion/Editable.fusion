@@ -1,0 +1,127 @@
+prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
+    node = ${node}
+
+    // The name of the property which should be accessed
+    property = null
+
+    // Style of input
+    // - input = No linebreaks, no tags
+    // - textarea = No linebreaks, no tags, but autogrowing
+    // - select = Select values
+    // - radio = Radio buttons
+    // - block = Default editor, block style
+    // - inline = Default editor, inline style
+    type = 'input'
+
+    // For type select and radio
+    options = Neos.Fusion:DataStructure
+    // For type select
+    optionGroups = Neos.Fusion:DataStructure
+    /*
+    Example for optionGroups
+    optionGroups {
+        group {
+            label = 'The label'
+            disabled = false
+            options {
+                key = 'Value'
+            }
+        }
+    }
+    */
+
+    // Prepend a label
+    label = null
+
+    // Overwrite the placeholder from the nodetype definition
+    placeholder = null
+
+    // Internal
+    block = ${this.type == 'block'}
+    value = ${q(this.node).property(this.property)}
+    disabled = ${this.node.context.inBackend && this.node.context.currentRenderingMode.edit ? null : true}
+    id = ${this.property + this.node.identifier + Math.randomInt(0, 10000)}
+    needLabel = ${this.type != 'block' && this.type != 'inline'}
+    inBackend = ${this.node.context.inBackend}
+
+    @if.hasNodeAndPropertyAndType = ${this.node && this.property && Type.isString(this.type)}
+
+    renderer = afx`
+        {!props.inBackend && props.value ? props.value : ''}
+        <div class='carbon-backenddocument-editable' @if.set={props.inBackend}>
+            <link rel='stylesheet' data-slipstream>
+                <Neos.Fusion:ResourceUri @path='attributes.href' path='resource://Carbon.BackendDocument/Public/Editable.css' />
+            </link>
+            <script data-slipstream defer>
+                <Neos.Fusion:ResourceUri @path='attributes.src' path='resource://Carbon.BackendDocument/Public/Editable.js' />
+            </script>
+            <label
+                @if.set={props.label && props.needLabel}
+                class='carbon-backenddocument-editable__label'
+                for={props.id}
+            >
+                {props.label}
+            </label>
+            <div
+                @if.set={props.label && !props.needLabel}
+                class='carbon-backenddocument-editable__label'
+            >
+                {props.label}
+            </div>
+            <div
+                @if.set={props.type == 'radio'}
+                class='carbon-backenddocument-editable__radio'
+            >
+                <Neos.Fusion:Loop items={props.options}>
+                    <label>
+                        <input type='radio' name={props.id} value={itemKey} checked={props.value == itemKey} />
+                        <span>{props.label}</span>
+                    </label>
+                </Neos.Fusion:Loop>
+            </div>
+            <select
+                @if.set={props.type == 'select'}
+                id={props.id}
+                class='carbon-backenddocument-editable__select'
+                disabled={props.disabled}
+            >
+                <option
+                    @if.set={!props.value}
+                    selected
+                    class='carbon-backenddocument-editable__selectplaceholder'
+                >
+                    {props.placeholder}
+                </option>
+                <Neos.Fusion:Loop items={props.options}>
+                    <option value={itemKey} selected={props.value == itemKey}>{item}</option>
+                </Neos.Fusion:Loop>
+                <Neos.Fusion:Loop items={props.optionGroups}>
+                    <optgroup label={item.label} disabled={item.disabled}>
+                        <Neos.Fusion:Loop items={item.options}>
+                            <option value={itemKey} selected={props.value == itemKey}>{item}</option>
+                        </Neos.Fusion:Loop>
+                    </optgroup>
+                </Neos.Fusion:Loop>
+            </select>
+            <input
+                @if.set={props.type == 'input'}
+                id={props.id}
+                class='carbon-backenddocument-editable__input'
+                type='text'
+                value={props.value}
+                disabled={props.disabled}
+                placeholder={props.placeholder}
+            />
+            <div @if.set={props.type == 'textarea'} class='carbon-backenddocument-editable__textarea'>
+                <textarea id={props.id} disabled={props.disabled} placeholder={props.placeholder}>
+                    {props.value}
+                </textarea>
+            </div>
+            <Neos.Neos:Editable
+                node={props.node}
+                property={props.property}
+                block={props.block}
+            />
+        </div>
+    `
+}

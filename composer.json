@@ -12,8 +12,9 @@
         "backend"
     ],
     "require": {
-        "neos/neos": "^4.0 || ^5.0",
-        "neos/fusion-afx": "^1.1"
+        "neos/neos": "^4.3 || ^5.0",
+        "neos/fusion-afx": "^1.1",
+        "sitegeist/slipstream": "^1.0"
     },
     "authors": [
         {
