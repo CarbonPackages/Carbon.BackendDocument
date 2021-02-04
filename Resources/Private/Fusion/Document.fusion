@@ -8,14 +8,14 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
 
     // Inkl. Tags
     javascripts = null
-    frontendRedirect = Neos.Fusion:RawArray {
+    frontendRedirect = Neos.Fusion:DataStructure {
         node = ${q(documentNode).parent().get(0)}
         section = null
         additionalParams = null
         statusCode = 301
     }
 
-    neosBackendHead = Neos.Fusion:Array {
+    neosBackendHead = Neos.Fusion:Join {
         @if.inBackend = ${documentNode.context.inBackend}
         javascriptBackendInformation = Neos.Neos.Ui:RenderConfiguration {
             path = 'documentNodeInformation'
@@ -67,6 +67,7 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
         default {
             condition = true
             renderer = Neos.Fusion:Http.Message {
+                httpResponseHead.headers.X-Slipstream = 'enabled'
                 doctype = '<!DOCTYPE html>'
                 markup = afx`
                     <html class={['-backend -js', props.singleline ? '-full-height': null]}>
@@ -74,9 +75,9 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
                             <meta charset='UTF-8' />
                             <title>{props.title}</title>
                             {props.neosBackendHead}
-                            <style>
-                                {File.readFile('resource://Carbon.BackendDocument/Private/Fusion/Document/Document.css')}
-                                {props.style ? props.style : ''}
+                            <link rel='stylesheet' href={StaticResource.uri('Carbon.BackendDocument', 'Public/Document.css')} />
+                            <style @if.set={props.style}>
+                                {props.style }
                             </style>
                             {props.headTags}
                         </head>
