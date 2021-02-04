@@ -6,15 +6,15 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
 
     // Style of input
     // - input = No linebreaks, no tags, but autogrowing
-    // - select = Select values
-    // - radio = Radio buttons
+    // - select = Select values, uses `options` and `optionGroups` DataStructure
+    // - radio = Radio buttons, uses `options` DataStructure
     // - block = Default editor, block style
     // - inline = Default editor, inline style
     type = 'input'
 
-    // For type select and radio
+    // Used for type select and radio 
     options = Neos.Fusion:DataStructure
-    // For type select
+    // Used for type select
     optionGroups = Neos.Fusion:DataStructure
     /*
     Example for optionGroups
@@ -39,7 +39,7 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     class = null
 
     // Inlcude the styling.
-    // Be aware! If one elment on a document has set this to true, this get`s included for the whole document
+    // Be aware! If one elment on a document has set this to true, this get's included for the whole document
     includeCSS = true
 
     // Internal
