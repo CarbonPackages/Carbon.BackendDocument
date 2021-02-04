@@ -1,0 +1,105 @@
+.-full-height {
+    height: 100%;
+}
+
+.carbon-backend,
+.carbon-backend * {
+    box-sizing: border-box;
+}
+
+.neos-backend {
+    box-sizing: border-box;
+    margin: 0;
+    background: #323232;
+    color: #fff;
+    font-family: "Noto Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 30px 15px;
+    position: relative;
+}
+
+.carbon-backend--content-single {
+    position: relative;
+    margin: 0 auto;
+    max-width: 500px;
+    font-size: 22px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.carbon-backend h1,
+.carbon-backend h2,
+.carbon-backend h3,
+.carbon-backend h4,
+.carbon-backend h5,
+.carbon-backend h6 {
+    color: inherit;
+}
+
+.carbon-backend hr:not([class]) {
+    color: #3f3f3f;
+}
+
+.carbon-backend a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.carbon-backend a:hover,
+.carbon-backend a:focus {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.carbon-backenddocument-editable {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.carbon-backend .carbon-backenddocument-editable__input,
+.carbon-backend .carbon-backenddocument-editable__select,
+.carbon-backend .carbon-backenddocument-editable [contenteditable],
+.carbon-backend .carbon-backenddocument-editable__textarea > textarea,
+.carbon-backend .carbon-backenddocument-editable__textarea::after {
+    border-radius: 2px;
+    min-height: 40px;
+    background: #222;
+    color: white;
+    line-height: 1.15;
+    padding: 0 14px;
+}
+
+.carbon-backend .carbon-backenddocument-editable [contenteditable] {
+    padding: 10px 14px;
+}
+
+.carbon-backend .carbon-backenddocument-editable [contenteditable] p,
+.carbon-backend .carbon-backenddocument-editable [contenteditable] ul,
+.carbon-backend .carbon-backenddocument-editable [contenteditable] ol,
+.carbon-backend .carbon-backenddocument-editable [contenteditable] figure {
+    margin: 0 0 1em;
+}
+
+.carbon-backend .carbon-backenddocument-editable__input:hover,
+.carbon-backend .carbon-backenddocument-editable__textarea > textarea:hover,
+.carbon-backend .carbon-backenddocument-editable__select:hover {
+    outline: 0;
+}
+
+.carbon-backend .carbon-backenddocument-editable__input:focus,
+.carbon-backend .carbon-backenddocument-editable__textarea > textarea:focus,
+.carbon-backend .carbon-backenddocument-editable__select:focus,
+.carbon-backend .carbon-backenddocument-editable .ck-focused {
+    outline: 0;
+    background: #fff;
+    color: #141414;
+}
+
+.carbon-backend .carbon-backenddocument-editable__textarea > textarea,
+.carbon-backend .carbon-backenddocument-editable__textarea::after {
+    padding: 10px 14px;
+}
