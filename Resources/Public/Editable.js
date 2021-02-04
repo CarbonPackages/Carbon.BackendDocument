@@ -8,9 +8,9 @@
             editor.childNodes.length === 1 &&
             editor.childNodes[0].nodeType === 1
         ) {
-            editor.childNodes[0].innerHTML = value;
+            editor.childNodes[0].innerText = value;
         } else {
-            editor.innerHTML = value;
+            editor.innerText = value;
         }
     }
 
