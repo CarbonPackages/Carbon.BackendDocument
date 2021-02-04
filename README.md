@@ -1,13 +1,16 @@
-[![Latest Stable Version](https://poser.pugx.org/carbon/backenddocument/v/stable)](https://packagist.org/packages/carbon/backenddocument)
-[![Total Downloads](https://poser.pugx.org/carbon/backenddocument/downloads)](https://packagist.org/packages/carbon/backenddocument)
-[![License](https://poser.pugx.org/carbon/backenddocument/license)](LICENSE)
-[![GitHub forks](https://img.shields.io/github/forks/CarbonPackages/Carbon.BackendDocument.svg?style=social&label=Fork)](https://github.com/CarbonPackages/Carbon.BackendDocument/fork)
-[![GitHub stars](https://img.shields.io/github/stars/CarbonPackages/Carbon.BackendDocument.svg?style=social&label=Stars)](https://github.com/CarbonPackages/Carbon.BackendDocument/stargazers)
-[![GitHub watchers](https://img.shields.io/github/watchers/CarbonPackages/Carbon.FirstElement.svg?style=social&label=Watch)](https://github.com/CarbonPackages/Carbon.FirstElement/subscription)
+[![Latest stable version]][packagist] [![Total downloads]][packagist] [![License]][packagist] [![GitHub forks]][fork] [![GitHub stars]][stargazers] [![GitHub watchers]][subscription]
 
 # Carbon.BackendDocument Package for Neos CMS
 
-A small Fusion prototype to create nice only-backend documents.
+Two small Fusion prototypes to create nice only-backend documents.
+
+| Version | Neos          | Maintained |
+| ------- | ------------- | :--------: |
+| 1.\*    | 3.3.\* - 5.\* |     ✗      |
+| 2.\*    | 4.\* - 5.\*   |     ✗      |
+| 3.\*    | 7.\*          |     ✗      |
+| 4.\*    | 4.3.\* - 5.\* |     ✓      |
+| 5.\*    | 7.\*          |     ✓      |
 
 ## Installation
 
@@ -20,8 +23,7 @@ composer require --no-update carbon/backenddocument
 
 Then run `composer update` in your project root.
 
-
-## Usage of `Carbon.BackendDocument:Document`
+## Usage of [`Carbon.BackendDocument:Document`]
 
 | Property                      | Default value                        | Description                                                        |
 | ----------------------------- | ------------------------------------ | ------------------------------------------------------------------ |
@@ -34,6 +36,44 @@ Then run `composer update` in your project root.
 | `frontendRedirect.node`       | `${q(documentNode).parent().get(0)}` | The node where the user get redirected in the frontend.            |
 | `frontendRedirect.statusCode` | `301`                                | The status code for the redirection                                |
 
-## License
+## Usage of [`Carbon.BackendDocument:Editable`]
 
-Licensed under MIT, see [LICENSE](LICENSE)
+If you use this protoype on a normal document, the editor has the default styling from `Neos.Neos:Editable`.
+If you use it on [`Carbon.BackendDocument:Document`], the editor get the look of an field in the inspector.
+
+| Property       | Default value               | Description                                                                      |
+| -------------- | --------------------------- | -------------------------------------------------------------------------------- |
+| `node`         | `node`                      | A node instance that should be used to read the property.                        |
+| `property`     | `null`                      | The name of the property which should be accessed                                |
+| `type`         | `input`                     | Set the type of editor. For possible values look at the next table               |
+| `options`      | `Neos.Fusion:DataStructure` | Used for type `select` and `radio`                                               |
+| `optionGroups` | `Neos.Fusion:DataStructure` | Used for type `select`                                                           |
+| `label`        | `null`                      | Prepend a label                                                                  |
+| `placeholder`  | `null`                      | Overwrite the placeholder from the nodetype definition. This can also be dynamic |
+| `class`        | `null`                      | Add your own style if you want to override some stylings                         |
+| `includeCSS`   | `true`                      | Inlcude the styling.                                                             |
+
+Be aware! If one elment on a document has set `includeCSS` to true, this get's included for the whole document.
+
+### Types
+
+| Value    | Description                                                    |
+| -------- | -------------------------------------------------------------- |
+| `input`  | No linebreaks, no tags, but autogrowing textfield              |
+| `select` | Select values, uses `options` and `optionGroups` DataStructure |
+| `radio`  | Select values, uses `options` DataStructure                    |
+| `block`  | Default editor, block style                                    |
+| `inline` | Default editor, inline style                                   |
+
+[packagist]: https://packagist.org/packages/carbon/backenddocument
+[latest stable version]: https://poser.pugx.org/carbon/backenddocument/v/stable
+[total downloads]: https://poser.pugx.org/carbon/backenddocument/downloads
+[license]: https://poser.pugx.org/carbon/backenddocument/license
+[github forks]: https://img.shields.io/github/forks/CarbonPackages/Carbon.BackendDocument.svg?style=social&label=Fork
+[github stars]: https://img.shields.io/github/stars/CarbonPackages/Carbon.BackendDocument.svg?style=social&label=Stars
+[github watchers]: https://img.shields.io/github/watchers/CarbonPackages/Carbon.BackendDocument.svg?style=social&label=Watch
+[fork]: https://github.com/CarbonPackages/Carbon.BackendDocument/fork
+[stargazers]: https://github.com/CarbonPackages/Carbon.BackendDocument/stargazers
+[subscription]: https://github.com/CarbonPackages/Carbon.BackendDocument/subscription
+[`carbon.backenddocument:document`]: Resources/Private/Fusion/Document.fusion
+[`carbon.backenddocument:editable`]: Resources/Private/Fusion/Editable.fusion
