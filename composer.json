@@ -13,7 +13,8 @@
     ],
     "require": {
         "neos/neos": "^7.0",
-        "neos/fusion-afx": "^7.0"
+        "neos/fusion-afx": "^7.0",
+        "sitegeist/slipstream": "^2.0"
     },
     "authors": [
         {
