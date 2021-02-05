@@ -38,8 +38,14 @@ Then run `composer update` in your project root.
 
 ## Usage of [`Carbon.BackendDocument:Editable`]
 
-If you use this protoype on a normal document, the editor has the default styling from `Neos.Neos:Editable`.
-If you use it on [`Carbon.BackendDocument:Document`], the editor get the look of an field in the inspector.
+If you use this prototype on a regular document, the editor has the default styling from `Neos.Neos:Editable`.
+If you use it on [`Carbon.BackendDocument:Document`], the editor gets the look of an inspector field.
+
+If a value gets updated, a Javascript event with the name `Carbon.BackendDocument:Editable` gets fired. This event has the following details:
+
+-   `element`: the input/textarea/select field
+-   `property`: the name of the property
+-   `value`: The value of the property
 
 | Property       | Default value               | Description                                                                      |
 | -------------- | --------------------------- | -------------------------------------------------------------------------------- |

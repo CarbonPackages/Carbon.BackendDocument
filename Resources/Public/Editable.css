@@ -24,14 +24,32 @@ label.carbon-backenddocument-editable__label {
 }
 
 .carbon-backenddocument-editable__select {
+    position: relative;
+}
+
+.carbon-backenddocument-editable__select svg {
+    position: absolute;
+    pointer-events: none;
+    width: 14px;
+    height: 14px;
+    right: 10px;
+    top: calc(50% - 7px);
+}
+
+.carbon-backenddocument-editable__select > select {
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 30px !important;
+    background-image: none !important;
 }
 
 .carbon-backenddocument-editable__select option:checked {
     background: #01adee;
 }
 
-.carbon-backenddocument-editable__select,
+.carbon-backenddocument-editable__select > select,
 .carbon-backenddocument-editable [contenteditable],
 .carbon-backenddocument-editable__input > textarea {
     display: block;
@@ -44,7 +62,7 @@ label.carbon-backenddocument-editable__label {
     appearance: none;
 }
 
-.carbon-backenddocument-editable__select,
+.carbon-backenddocument-editable__select > select,
 .carbon-backenddocument-editable [contenteditable],
 .carbon-backenddocument-editable__input > textarea,
 .carbon-backenddocument-editable__input::after {
@@ -55,8 +73,8 @@ label.carbon-backenddocument-editable__label {
     box-shadow: none !important;
 }
 
-.carbon-backenddocument-editable__select:hover,
-.carbon-backenddocument-editable__select:focus,
+.carbon-backenddocument-editable__select > select:hover,
+.carbon-backenddocument-editable__select > select:focus,
 .carbon-backenddocument-editable__input > textarea:hover,
 .carbon-backenddocument-editable__input > textarea:focus {
     outline-offset: 5px;

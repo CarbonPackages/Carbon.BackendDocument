@@ -1,0 +1,25 @@
+prototype(Carbon.BackendDocument:Editable.Fragment.Options) < prototype(Neos.Fusion:Component) {
+    options = null
+    optionGroups = null
+    value = null
+
+    hasOptions = ${Type.isArray(this.options) && Array.length(this.options)}
+    hasGroup = ${Type.isArray(this.optionGroups) && Array.length(this.optionGroups)}
+
+    @if.hasOptions = ${this.hasOptions || this.hasGroup}
+
+    renderer = afx`
+        <Neos.Fusion:Loop @if.set={props.hasOptions} items={props.options}>
+            <option value={itemKey} selected={props.value == itemKey}>{item}</option>
+        </Neos.Fusion:Loop>
+        <Neos.Fusion:Loop @if.set={props.hasGroup} items={props.optionGroups}>
+            <optgroup label={item.label} disabled={item.disabled}>
+                <Carbon.BackendDocument:Editable.Fragment.Options
+                    options={item.options}
+                    optionGroups={item.optionGroups}
+                    value={props.value}
+                />
+            </optgroup>
+        </Neos.Fusion:Loop>
+    `
+}
