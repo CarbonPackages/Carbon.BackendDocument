@@ -50,10 +50,11 @@ If you use it on [`Carbon.BackendDocument:Document`], the editor get the look of
 | `optionGroups` | `Neos.Fusion:DataStructure` | Used for type `select`                                                           |
 | `label`        | `null`                      | Prepend a label                                                                  |
 | `placeholder`  | `null`                      | Overwrite the placeholder from the nodetype definition. This can also be dynamic |
-| `class`        | `null`                      | Add your own style if you want to override some stylings                         |
+| `class`        | `null`                      | Add your own CSS class if you want to override some stylings                     |
+| `style`        | `null`                      | Add your own style to the root element                                           |
 | `includeCSS`   | `true`                      | Inlcude the styling.                                                             |
 
-Be aware! If one elment on a document has set `includeCSS` to true, this get's included for the whole document.
+Be aware! If one element on a document has set `includeCSS` to true, this get's included for the whole document.
 
 ### Types
 
