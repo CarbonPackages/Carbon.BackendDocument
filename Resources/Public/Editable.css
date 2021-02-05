@@ -8,11 +8,19 @@ label.carbon-backenddocument-editable__label {
     cursor: pointer;
 }
 
-.carbon-backenddocument-editable__selectplaceholder,
+.carbon-backenddocument-editable__selectplaceholder {
+    display: none !important;
+}
+
 .carbon-backenddocument-editable__input + [contenteditable],
 .carbon-backenddocument-editable__select + [contenteditable],
 .carbon-backenddocument-editable__radio + [contenteditable] {
-    display: none !important;
+    display: block !important;
+    max-height: 0 !important;
+    visibility: hidden !important;
+    line-height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
 }
 
 .carbon-backenddocument-editable__select {
