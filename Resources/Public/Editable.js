@@ -35,7 +35,7 @@
             }
         }, 300);
 
-        select.addEventListener("input", function () {
+        select.addEventListener("change", function () {
             updateValue(editor, this.value);
         });
     });
