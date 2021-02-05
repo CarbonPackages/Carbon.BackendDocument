@@ -82,7 +82,7 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
                 <Neos.Fusion:Loop items={props.options}>
                     <label>
                         <input type='radio' name={props.id} value={itemKey} checked={props.value == itemKey} />
-                        <span>{props.label}</span>
+                        <span>{item}</span>
                     </label>
                 </Neos.Fusion:Loop>
             </div>
