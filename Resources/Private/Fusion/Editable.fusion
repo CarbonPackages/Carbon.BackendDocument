@@ -50,7 +50,7 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     value = ${q(this.node).property(this.property)}
     disabled = ${this.node.context.inBackend && this.node.context.currentRenderingMode.edit ? null : true}
     id = ${this.property + this.node.identifier + Math.randomInt(0, 10000)}
-    needLabel = ${this.type != 'block' && this.type != 'inline'}
+    nativeEditor = ${this.type == 'block' || this.type == 'inline'}
     inBackend = ${this.node.context.inBackend}
 
     @if.hasNodeAndPropertyAndType = ${this.node && this.property && Type.isString(this.type)}
@@ -66,14 +66,14 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
             />
             <script src={StaticResource.uri('Carbon.BackendDocument', 'Public/Editable.js')} data-slipstream defer></script>
             <label
-                @if.set={props.label && props.needLabel}
+                @if.set={props.label && !props.nativeEditor}
                 class='carbon-backenddocument-editable__label'
                 for={props.id}
             >
                 {props.label}
             </label>
             <div
-                @if.set={props.label && !props.needLabel}
+                @if.set={props.label && props.nativeEditor}
                 class='carbon-backenddocument-editable__label'
             >
                 {props.label}
