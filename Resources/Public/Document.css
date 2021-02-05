@@ -60,7 +60,7 @@
     margin-bottom: 20px;
 }
 
-.carbon-backend .carbon-backenddocument-editable__select,
+.carbon-backend .carbon-backenddocument-editable__select > select,
 .carbon-backend .carbon-backenddocument-editable [contenteditable],
 .carbon-backend .carbon-backenddocument-editable__input > textarea,
 .carbon-backend .carbon-backenddocument-editable__input::after {
@@ -80,12 +80,12 @@
 }
 
 .carbon-backend .carbon-backenddocument-editable__input > textarea:hover,
-.carbon-backend .carbon-backenddocument-editable__select:hover {
+.carbon-backend .carbon-backenddocument-editable__select > select:hover {
     outline: 0;
 }
 
 .carbon-backend .carbon-backenddocument-editable__input > textarea:focus,
-.carbon-backend .carbon-backenddocument-editable__select:focus,
+.carbon-backend .carbon-backenddocument-editable__select > select:focus,
 .carbon-backend .carbon-backenddocument-editable .ck-focused {
     outline: 0;
     background: #fff;
@@ -96,4 +96,8 @@
 .carbon-backend .carbon-backenddocument-editable__input > textarea,
 .carbon-backend .carbon-backenddocument-editable__input::after {
     padding: 10px 14px;
+}
+
+.carbon-backenddocument-editable__select > select:focus + svg {
+    color: #141414;
 }

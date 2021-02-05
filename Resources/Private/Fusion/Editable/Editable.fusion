@@ -88,30 +88,26 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
                     </label>
                 </Neos.Fusion:Loop>
             </div>
-            <select
-                @if.set={props.type == 'select'}
-                id={props.id}
-                class='carbon-backenddocument-editable__select'
-                disabled={props.disabled}
-            >
-                <option
-                    @if.set={!props.value}
-                    selected
-                    class='carbon-backenddocument-editable__selectplaceholder'
+            <div @if.set={props.type == 'select'} class='carbon-backenddocument-editable__select'>
+                <select
+                    id={props.id}
+                    disabled={props.disabled}
                 >
-                    {props.placeholder}
-                </option>
-                <Neos.Fusion:Loop items={props.options}>
-                    <option value={itemKey} selected={props.value == itemKey}>{item}</option>
-                </Neos.Fusion:Loop>
-                <Neos.Fusion:Loop items={props.optionGroups}>
-                    <optgroup label={item.label} disabled={item.disabled}>
-                        <Neos.Fusion:Loop items={item.options}>
-                            <option value={itemKey} selected={props.value == itemKey}>{item}</option>
-                        </Neos.Fusion:Loop>
-                    </optgroup>
-                </Neos.Fusion:Loop>
-            </select>
+                    <option
+                        @if.set={!props.value}
+                        selected
+                        class='carbon-backenddocument-editable__selectplaceholder'
+                    >
+                        {props.placeholder}
+                    </option>
+                    <Carbon.BackendDocument:Editable.Fragment.Options
+                        options={props.options}
+                        optionGroups={props.optionGroups}
+                        value={props.value}
+                    />
+                </select>
+                {'<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 14 14"><path fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" d="M3 8.5l4 4 4-4M3 5.5l4-4 4 4"/></svg>'}
+            </div>
             <div @if.set={props.type == 'input'} class='carbon-backenddocument-editable__input'>
                 <textarea id={props.id} disabled={props.disabled} rows={1} placeholder={props.placeholder}>
                     {props.value}
