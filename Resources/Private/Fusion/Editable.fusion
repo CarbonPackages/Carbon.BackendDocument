@@ -118,11 +118,13 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
                     {props.value}
                 </textarea>
             </div>
-            <Neos.Neos:Editable
-                node={props.node}
-                property={props.property}
-                block={props.block}
-            />
+            <Neos.Fusion:Augmenter style={!props.nativeEditor ? 'display:none' : null}>
+                <Neos.Neos:Editable
+                    node={props.node}
+                    property={props.property}
+                    block={props.block}
+                />
+            </Neos.Fusion:Augmenter>
         </div>
     `
 }
