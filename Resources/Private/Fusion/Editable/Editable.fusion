@@ -65,7 +65,7 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
             class={[BEM.modifier('carbon-backenddocument-editable', props.inspectorStyle ? 'inspector' : 'default'), props.class]}
             style={props.style}
         >
-            <link rel='stylesheet' data-slipstream @if.set={props.includeCSS}>
+            <link @if.set={props.includeCSS} rel='stylesheet' data-slipstream >
                 <Neos.Fusion:ResourceUri @path='attributes.href' path='resource://Carbon.BackendDocument/Public/Editable.css' />
             </link>
             <script data-slipstream defer>
