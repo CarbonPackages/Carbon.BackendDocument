@@ -49,19 +49,19 @@ If a value gets updated, a Javascript event with the name `Carbon.BackendDocumen
 - `property`: the name of the property
 - `value`: The value of the property
 
-| Property         | Default value               | Description                                                                                                      |
-| ---------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `node`           | `node`                      | A node instance that should be used to read the property.                                                        |
-| `property`       | `null`                      | The name of the property which should be accessed                                                                |
-| `type`           | `input`                     | Set the type of editor. For possible values look at the next table                                               |
-| `options`        | `Neos.Fusion:DataStructure` | Used for type `select` and `radio`                                                                               |
-| `optionGroups`   | `Neos.Fusion:DataStructure` | Used for type `select`                                                                                           |
-| `label`          | `null`                      | Prepend a label                                                                                                  |
-| `placeholder`    | `null`                      | Overwrite the placeholder from the nodetype definition. This can also be dynamic                                 |
-| `class`          | `null`                      | Add your own CSS class if you want to override some stylings                                                     |
-| `style`          | `null`                      | Add your own style to the root element                                                                           |
-| `includeCSS`     | `true`                      | Inlcude the styling                                                                                              |
-| `inspectorStyle` | `true`                      | If set to true and used under [`Carbon.BackendDocument:Document`], the styling will adapt to the inspector style |
+| Property         | Default value               | Description                                                                                                        |
+| ---------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `node`           | `node`                      | A node instance that should be used to read the property.                                                          |
+| `property`       | `null`                      | The name of the property which should be accessed                                                                  |
+| `type`           | `input`                     | Set the type of editor. For possible values look at the next table                                                 |
+| `options`        | `Neos.Fusion:DataStructure` | Used for type `select` and `radio`                                                                                 |
+| `optionGroups`   | `Neos.Fusion:DataStructure` | Used for type `select`                                                                                             |
+| `label`          | `null`                      | Prepend a label                                                                                                    |
+| `placeholder`    | `null`                      | Overwrite the placeholder from the nodetype definition. This can also be dynamic                                   |
+| `class`          | `null`                      | Add your own CSS class if you want to override some stylings                                                       |
+| `style`          | `null`                      | Add your own style to the root element                                                                             |
+| `includeCSS`     | `true`                      | Inlcude the styling                                                                                                |
+| `inspectorStyle` | `true`                      | If set to `true` and used under [`Carbon.BackendDocument:Document`], the styling will adapt to the inspector style |
 
 Be aware! If one element on a document has set `includeCSS` to true, this get's included for the whole document.
 
