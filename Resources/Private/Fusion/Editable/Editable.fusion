@@ -41,6 +41,9 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     // Add your own style
     style = null
 
+    // If set to true and used under Carbon.BackendDocument:Document, the styling will adapt to the inspector style
+    inspectorStyle = true
+
     // Inlcude the styling.
     // Be aware! If one elment on a document has set this to true, this get's included for the whole document
     includeCSS = true
@@ -57,7 +60,11 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
 
     renderer = afx`
         {!props.inBackend && props.value ? props.value : ''}
-        <div class={['carbon-backenddocument-editable', props.class]} style={props.style} @if.set={props.inBackend}>
+        <div
+            @if.set={props.inBackend}
+            class={[BEM.modifier('carbon-backenddocument-editable', props.inspectorStyle ? 'inspector' : 'default'), props.class]}
+            style={props.style}
+        >
             <link
                 @if.set={props.includeCSS}
                 rel='stylesheet'

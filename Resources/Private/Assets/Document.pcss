@@ -1,0 +1,133 @@
+.-full-height {
+  height: 100%;
+}
+
+.neos-backend {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+.carbon-backend--content-single {
+  position: relative;
+  margin: 0 auto;
+  max-width: 500px;
+  font-size: 22px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.carbon-backend {
+  --neos-background: #323232;
+  --neos-font-family: "Noto Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --neos-color: #fff;
+  --document-padding-y: 30px;
+  --document-padding-x: 15px;
+  --document-margin-y: 0;
+  --document-margin-x: 0;
+  --inspector-background: #222;
+  --inspector-color: #fff;
+  --inspector-background-focus: #fff;
+  --inspector-color-focus: #141414;
+  --inspector-placeholder: #999;
+  --hr-color: #3f3f3f;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  h1:not([class]),
+  h2:not([class]),
+  h3:not([class]),
+  h4:not([class]),
+  h5:not([class]),
+  h6:not([class]) {
+    color: inherit;
+  }
+
+  hr:not([class]) {
+    color: var(--hr-color);
+  }
+
+  a:not([class]) {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}
+
+.carbon-backenddocument-editable--inspector {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.carbon-backend .carbon-backenddocument-editable--inspector {
+  .carbon-backenddocument-editable__select > select,
+  .carbon-backenddocument-editable [contenteditable],
+  .carbon-backenddocument-editable__input > textarea,
+  .carbon-backenddocument-editable__input::after {
+    border-radius: 2px;
+    min-height: 40px;
+    background: var(--inspector-background);
+    color: var(--inspector-color);
+    line-height: 1.15;
+    padding: 0 14px;
+  }
+
+  [contenteditable] {
+    p,
+    ul,
+    ol,
+    figure {
+      margin: 0 0 1em;
+    }
+  }
+
+  .carbon-backenddocument-editable__input > textarea,
+  .carbon-backenddocument-editable__select > select {
+    &:hover {
+      outline: 0;
+    }
+
+    &:focus {
+      outline: 0;
+      background: var(--inspector-background-focus);
+      color: var(--inspector-color-focus);
+    }
+  }
+
+  .ck-focused {
+    outline: 0;
+  }
+
+  [contenteditable],
+  .carbon-backenddocument-editable__input > textarea,
+  .carbon-backenddocument-editable__input::after {
+    padding: 10px 14px;
+  }
+
+  .carbon-backenddocument-editable__select > select:focus + svg {
+    color: var(--inspector-background-color);
+  }
+}
+
+.carbon-backend .carbon-backenddocument-editable--default {
+  .carbon-backenddocument-editable__select > select,
+  .carbon-backenddocument-editable__input > textarea {
+    background: transparent;
+    color: inherit;
+  }
+
+  ::placeholder {
+    color: var(--inspector-placeholder);
+  }
+}

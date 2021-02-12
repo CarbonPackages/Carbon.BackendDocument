@@ -6,6 +6,19 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
     title = ${q(node).property('title')}
     namespace = 'carbon-backend'
 
+    cssVariables = Neos.Fusion:DataStructure {
+        @process.parse = ${Array.join(Array.map(Array.filter(value, style => !!style), (value, key) => key + ':' + value),';')}
+    }
+
+    documentStyle = Neos.Fusion:DataStructure {
+        margin = 'var(--document-margin-y) var(--document-margin-x)'
+        background = 'var(--neos-background)'
+        font-family = 'var(--neos-font-family)'
+        color = 'var(--neos-color)'
+        padding = 'var(--document-padding-y) var(--document-padding-x)'
+        @process.parse = ${Array.join(Array.map(Array.filter(value, style => !!style), (value, key) => key + ':' + value),';')}
+    }
+
     // Inkl. Tags
     javascripts = null
     frontendRedirect = Neos.Fusion:DataStructure {
@@ -81,7 +94,10 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
                             </style>
                             {props.headTags}
                         </head>
-                        <body class={[props.namespace, 'neos-backend', props.singleline ? '-full-height': null]}>
+                        <body
+                            class={[props.namespace, 'neos-backend', props.singleline ? '-full-height': null]}
+                            style={Array.join(Array.filter([props.cssVariables, props.documentStyle], string => !!string),';')}
+                        >
                             <div class={props.namespace + '--content' + (props.singleline ? '-single' : '')}>
                                 {props.content}
                             </div>

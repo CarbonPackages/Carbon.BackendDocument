@@ -25,16 +25,18 @@ Then run `composer update` in your project root.
 
 ## Usage of [`Carbon.BackendDocument:Document`]
 
-| Property                      | Default value                        | Description                                                        |
-| ----------------------------- | ------------------------------------ | ------------------------------------------------------------------ |
-| `singleline`                  | `true`                               | If you want to have a non-centric design, set this to `false`      |
-| `content`                     | `null`                               | The content to show                                                |
-| `style`                       | `null`                               | Add additional style to the document                               |
-| `title`                       | `${q(node).property('title')}`       | The title of the document                                          |
-| `namespace`                   | `carbon-backend`                     | The namespace for the css class                                    |
-| `javascripts`                 | `null`                               | Add javscript to the document. Please provide also a `script` tag. |
-| `frontendRedirect.node`       | `${q(documentNode).parent().get(0)}` | The node where the user get redirected in the frontend.            |
-| `frontendRedirect.statusCode` | `301`                                | The status code for the redirection                                |
+| Property                      | Default value                         | Description                                                        |
+| ----------------------------- | ------------------------------------- | ------------------------------------------------------------------ |
+| `singleline`                  | `true`                                | If you want to have a non-centric design, set this to `false`      |
+| `content`                     | `null`                                | The content to show                                                |
+| `style`                       | `null`                                | Add additional style to the document                               |
+| `title`                       | `${q(node).property('title')}`        | The title of the document                                          |
+| `namespace`                   | `carbon-backend`                      | The namespace for the css class                                    |
+| `javascripts`                 | `null`                                | Add javscript to the document. Please provide also a `script` tag. |
+| `frontendRedirect.node`       | `${q(documentNode).parent().get(0)}`  | The node where the user get redirected in the frontend.            |
+| `frontendRedirect.statusCode` | `301`                                 | The status code for the redirection                                |
+| `cssVariables`                | `null`                                | Add your own CSS custom properties                                 |
+| `documentStyle`               | Please take a look at the source code | Modify/add/remove styles for the backend docment                   |
 
 ## Usage of [`Carbon.BackendDocument:Editable`]
 
@@ -43,22 +45,23 @@ If you use it on [`Carbon.BackendDocument:Document`], the editor gets the look o
 
 If a value gets updated, a Javascript event with the name `Carbon.BackendDocument:Editable` gets fired. This event has the following details:
 
--   `element`: the input/textarea/select field
--   `property`: the name of the property
--   `value`: The value of the property
+- `element`: the input/textarea/select field
+- `property`: the name of the property
+- `value`: The value of the property
 
-| Property       | Default value               | Description                                                                      |
-| -------------- | --------------------------- | -------------------------------------------------------------------------------- |
-| `node`         | `node`                      | A node instance that should be used to read the property.                        |
-| `property`     | `null`                      | The name of the property which should be accessed                                |
-| `type`         | `input`                     | Set the type of editor. For possible values look at the next table               |
-| `options`      | `Neos.Fusion:DataStructure` | Used for type `select` and `radio`                                               |
-| `optionGroups` | `Neos.Fusion:DataStructure` | Used for type `select`                                                           |
-| `label`        | `null`                      | Prepend a label                                                                  |
-| `placeholder`  | `null`                      | Overwrite the placeholder from the nodetype definition. This can also be dynamic |
-| `class`        | `null`                      | Add your own CSS class if you want to override some stylings                     |
-| `style`        | `null`                      | Add your own style to the root element                                           |
-| `includeCSS`   | `true`                      | Inlcude the styling.                                                             |
+| Property         | Default value               | Description                                                                                                        |
+| ---------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `node`           | `node`                      | A node instance that should be used to read the property.                                                          |
+| `property`       | `null`                      | The name of the property which should be accessed                                                                  |
+| `type`           | `input`                     | Set the type of editor. For possible values look at the next table                                                 |
+| `options`        | `Neos.Fusion:DataStructure` | Used for type `select` and `radio`                                                                                 |
+| `optionGroups`   | `Neos.Fusion:DataStructure` | Used for type `select`                                                                                             |
+| `label`          | `null`                      | Prepend a label                                                                                                    |
+| `placeholder`    | `null`                      | Overwrite the placeholder from the nodetype definition. This can also be dynamic                                   |
+| `class`          | `null`                      | Add your own CSS class if you want to override some stylings                                                       |
+| `style`          | `null`                      | Add your own style to the root element                                                                             |
+| `includeCSS`     | `true`                      | Inlcude the styling                                                                                                |
+| `inspectorStyle` | `true`                      | If set to `true` and used under [`Carbon.BackendDocument:Document`], the styling will adapt to the inspector style |
 
 Be aware! If one element on a document has set `includeCSS` to true, this get's included for the whole document.
 

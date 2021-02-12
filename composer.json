@@ -14,7 +14,8 @@
     "require": {
         "neos/neos": "^7.0",
         "neos/fusion-afx": "^7.0",
-        "sitegeist/slipstream": "^2.0"
+        "sitegeist/slipstream": "^2.0",
+        "carbon/eel": "^1.9"
     },
     "authors": [
         {
@@ -26,11 +27,23 @@
     ],
     "archive": {
         "exclude": [
-            ".editorconfig",
-            ".gitattributes",
             ".github",
+            ".editorconfig",
+            ".eslintignore",
+            ".eslintrc",
+            ".gitattributes",
             ".gitignore",
-            "CODE_OF_CONDUCT.md"
+            ".nvmrc",
+            ".prettierignore",
+            ".prettierrc",
+            ".stylelintrc",
+            ".yarnclean",
+            "babel.config.js",
+            "CODE_OF_CONDUCT.md",
+            "package.json",
+            "postcss.config.js",
+            "rollup.config.js",
+            "yarn.lock"
         ]
     },
     "autoload": {
