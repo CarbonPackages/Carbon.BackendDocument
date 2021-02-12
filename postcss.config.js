@@ -3,7 +3,7 @@ module.exports = {
         "postcss-nested": true,
         autoprefixer: true,
         cssnano: {
-            preset: ["default", { discardComments: { removeAll: true } }],
+            preset: ["default", { mergeRules: false, discardComments: { removeAll: true } }],
         },
     },
 };
