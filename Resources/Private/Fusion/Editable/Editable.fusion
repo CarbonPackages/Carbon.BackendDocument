@@ -48,6 +48,9 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     // Be aware! If one elment on a document has set this to true, this get's included for the whole document
     includeCSS = true
 
+    // Fallback for the frontend if no value is given
+    fallback = null
+
     // Internal
     block = ${this.type == 'block'}
     value = ${q(this.node).property(this.property)}
@@ -59,7 +62,7 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     @if.hasNodeAndPropertyAndType = ${this.node && this.property && Type.isString(this.type)}
 
     renderer = afx`
-        {!props.inBackend && props.value ? props.value : ''}
+        {!props.inBackend ? (props.value || props.fallback) : ''}
         <div
             @if.set={props.inBackend}
             class={[BEM.modifier('carbon-backenddocument-editable', props.inspectorStyle ? 'inspector' : 'default'), props.class]}
