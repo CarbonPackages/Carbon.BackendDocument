@@ -105,6 +105,7 @@ addEvent("change", "__radio input", (radio) => {
 addEvent("input", "__input textarea", (textarea) => {
     const element = textarea.parentElement;
     const editor = element.nextElementSibling;
+    const placeholder = textarea.placeholder;
     element.dataset.replicatedValue = textarea.value;
     updateValue(editor, textarea);
     if (!textarea.value) {
