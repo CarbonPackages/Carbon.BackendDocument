@@ -51,6 +51,9 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     // Fallback for the frontend if no value is given
     fallback = null
 
+    // Switch if the value should be editable
+    editable = true
+
     // Internal
     block = ${this.type == 'block'}
     value = ${q(this.node).property(this.property)}
@@ -62,9 +65,9 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     @if.hasNodeAndPropertyAndType = ${this.node && this.property && Type.isString(this.type)}
 
     renderer = afx`
-        {!props.inBackend ? (props.value || props.fallback) : ''}
+        {!props.inBackend || !props.editable ? (props.value || props.fallback) : ''}
         <div
-            @if.set={props.inBackend}
+            @if.set={props.inBackend && props.editable}
             class={[BEM.modifier('carbon-backenddocument-editable', props.inspectorStyle ? 'inspector' : 'default'), props.class]}
             style={props.style}
         >
