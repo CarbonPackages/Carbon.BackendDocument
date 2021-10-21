@@ -57,10 +57,17 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
             sectionName = 'guestFrameApplication'
         }
     }
-    neosUiNonRenderedNodeMetadata = Neos.Neos.Ui:RenderNonRenderedNodeMetadata {
-        @class = 'Neos\\Neos\\Ui\\Fusion\\RenderNonRenderedNodeMetadataImplementation'
-        @if.inBackend = ${node.context.inBackend}
-        node = ${node}
+    neosUiNonRenderedNodeMetadata = Neos.Fusion:Value {
+        @if {
+            inBackend = ${node.context.inBackend}
+            canRender = Neos.Fusion:CanRender {
+                type = 'Neos.Neos.Ui:RenderNonRenderedNodeMetadata'
+            }
+        }
+        value = Neos.Neos.Ui:RenderNonRenderedNodeMetadata {
+            @class = 'Neos\\Neos\\Ui\\Fusion\\RenderNonRenderedNodeMetadataImplementation'
+            node = ${node}
+        }
     }
 
     renderer = Neos.Fusion:Case {
