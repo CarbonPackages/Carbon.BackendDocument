@@ -52,35 +52,3 @@ module.exports = filenames.map((filename) => {
         },
     };
 });
-
-// module.exports = {
-//     input: "Resources/Private/Assets/Editable.js",
-//     plugins: [
-//         babel({
-//             exclude: "node_modules/**",
-//             babelHelpers: "bundled",
-//         }),
-//         terser({
-//             output: {
-//                 comments: false,
-//             },
-//         }),
-//     ],
-//     output: {
-//         sourcemap: false,
-//         file: "Resources/Public/Editable.js",
-//         format: "iife",
-//     },
-// };
-
-/*
-javascript: [
-        {
-            plugin: "@rollup/plugin-babel",
-            options: {
-                exclude: "node_modules/**", // only transpile our source code
-                babelHelpers: "bundled",
-            },
-        },
-    ],
-    */
