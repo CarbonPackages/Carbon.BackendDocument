@@ -36,24 +36,24 @@
   --inspector-placeholder: #999;
   --hr-color: #3f3f3f;
 
-  * {
+  & * {
     box-sizing: border-box;
   }
 
-  h1:not([class]),
-  h2:not([class]),
-  h3:not([class]),
-  h4:not([class]),
-  h5:not([class]),
-  h6:not([class]) {
+  & h1:not([class]),
+  & h2:not([class]),
+  & h3:not([class]),
+  & h4:not([class]),
+  & h5:not([class]),
+  & h6:not([class]) {
     color: inherit;
   }
 
-  hr:not([class]) {
+  & hr:not([class]) {
     color: var(--hr-color);
   }
 
-  a:not([class]) {
+  & a:not([class]) {
     color: inherit;
     text-decoration: none;
 
@@ -71,10 +71,10 @@
 }
 
 .carbon-backend .carbon-backenddocument-editable--inspector {
-  .carbon-backenddocument-editable__select > select,
-  .carbon-backenddocument-editable [contenteditable],
-  .carbon-backenddocument-editable__input > textarea,
-  .carbon-backenddocument-editable__input::after {
+  & .carbon-backenddocument-editable__select > select,
+  & .carbon-backenddocument-editable [contenteditable],
+  & .carbon-backenddocument-editable__input > textarea,
+  & .carbon-backenddocument-editable__input::after {
     border-radius: 2px;
     min-height: 40px;
     background: var(--inspector-background);
@@ -83,17 +83,17 @@
     padding: 0 14px;
   }
 
-  [contenteditable] {
-    p,
-    ul,
-    ol,
-    figure {
+  & [contenteditable] {
+    & p,
+    & ul,
+    & ol,
+    & figure {
       margin: 0 0 1em;
     }
   }
 
-  .carbon-backenddocument-editable__input > textarea,
-  .carbon-backenddocument-editable__select > select {
+  & .carbon-backenddocument-editable__input > textarea,
+  & .carbon-backenddocument-editable__select > select {
     &:hover {
       outline: 0;
     }
@@ -105,29 +105,29 @@
     }
   }
 
-  .ck-focused {
+  & .ck-focused {
     outline: 0;
   }
 
-  [contenteditable],
-  .carbon-backenddocument-editable__input > textarea,
-  .carbon-backenddocument-editable__input::after {
+  & [contenteditable],
+  & .carbon-backenddocument-editable__input > textarea,
+  & .carbon-backenddocument-editable__input::after {
     padding: 10px 14px;
   }
 
-  .carbon-backenddocument-editable__select > select:focus + svg {
+  & .carbon-backenddocument-editable__select > select:focus + svg {
     color: var(--inspector-color-focus);
   }
 }
 
 .carbon-backend .carbon-backenddocument-editable--default {
-  .carbon-backenddocument-editable__select > select,
-  .carbon-backenddocument-editable__input > textarea {
+  & .carbon-backenddocument-editable__select > select,
+  & .carbon-backenddocument-editable__input > textarea {
     background: transparent;
     color: inherit;
   }
 
-  ::placeholder {
+  & ::placeholder {
     color: var(--inspector-placeholder);
   }
 }

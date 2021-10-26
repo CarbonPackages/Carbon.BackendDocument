@@ -26,7 +26,7 @@ label.carbon-backenddocument-editable__label {
 .carbon-backenddocument-editable__select {
   position: relative;
 
-  svg {
+  & svg {
     position: absolute;
     pointer-events: none;
     width: 14px;
@@ -35,7 +35,7 @@ label.carbon-backenddocument-editable__label {
     top: calc(50% - 7px);
   }
 
-  > select {
+  & > select {
     cursor: pointer;
     appearance: none;
     padding-right: 30px !important;
@@ -44,7 +44,7 @@ label.carbon-backenddocument-editable__label {
     text-align: inherit;
   }
 
-  option:checked {
+  & option:checked {
     background: #01adee;
   }
 }
@@ -90,12 +90,12 @@ label.carbon-backenddocument-editable__label {
     visibility: hidden;
   }
 
-  > textarea {
+  & > textarea {
     resize: none;
     overflow: hidden;
   }
 
-  > textarea,
+  & > textarea,
   &:after {
     grid-area: 1 / 1 / 2 / 2;
   }
@@ -106,13 +106,13 @@ label.carbon-backenddocument-editable__label {
   flex-wrap: wrap;
   margin: -5px -15px;
 
-  > label {
+  & > label {
     display: flex;
     align-items: baseline;
     margin: 5px 15px;
   }
 
-  input {
+  & input {
     margin-right: 5px;
   }
 }
