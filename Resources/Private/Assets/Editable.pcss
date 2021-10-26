@@ -88,15 +88,12 @@ label.carbon-backenddocument-editable__label {
     content: attr(data-replicated-value) " ";
     white-space: pre-wrap;
     visibility: hidden;
+    grid-area: 1 / 1 / 2 / 2;
   }
 
   & > textarea {
     resize: none;
     overflow: hidden;
-  }
-
-  & > textarea,
-  &:after {
     grid-area: 1 / 1 / 2 / 2;
   }
 }
