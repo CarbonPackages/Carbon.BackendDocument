@@ -62,6 +62,8 @@ If a value gets updated, a Javascript event with the name `Carbon.BackendDocumen
 | `style`          | `null`                      | Add your own style to the root element                                                                             |
 | `includeCSS`     | `true`                      | Inlcude the styling                                                                                                |
 | `inspectorStyle` | `true`                      | If set to `true` and used under [`Carbon.BackendDocument:Document`], the styling will adapt to the inspector style |
+| `fallback`       | `null`                      | Fallback for the frontend if no value is given                                                                     |
+| `editable`       | `true`                      | Switch if the value should be editable                                                                             |
 
 Be aware! If one element on a document has set `includeCSS` to true, this get's included for the whole document.
 
@@ -86,4 +88,4 @@ Be aware! If one element on a document has set `includeCSS` to true, this get's 
 [stargazers]: https://github.com/CarbonPackages/Carbon.BackendDocument/stargazers
 [subscription]: https://github.com/CarbonPackages/Carbon.BackendDocument/subscription
 [`carbon.backenddocument:document`]: Resources/Private/Fusion/Document.fusion
-[`carbon.backenddocument:editable`]: Resources/Private/Fusion/Editable.fusion
+[`carbon.backenddocument:editable`]: Resources/Private/Fusion/Editable/Editable.fusion
