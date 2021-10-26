@@ -1,5 +1,5 @@
 {
-  "extends": "stylelint-config-recommended-scss",
+  "extends": "stylelint-config-standard",
   "ignoreFiles": [
     "**/Public/**",
     "**/Private/Templates/**",
@@ -7,77 +7,7 @@
     "**/*.noLinter.*"
   ],
   "rules": {
-    "scss/at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": [
-          "tailwind",
-          "apply",
-          "layer",
-          "variants",
-          "responsive",
-          "screen",
-          "include",
-          "if",
-          "else",
-          "mixin"
-        ]
-      }
-    ],
-    "at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": [
-          "tailwind",
-          "apply",
-          "layer",
-          "variants",
-          "responsive",
-          "screen",
-          "include",
-          "if",
-          "else",
-          "mixin"
-        ]
-      }
-    ],
-    "property-no-unknown": [
-      true,
-      {
-        "ignoreProperties": [
-          "font-range",
-          "min-font-size",
-          "max-font-size",
-          "lower-font-range",
-          "upper-font-range",
-          "font-awesome",
-          "tap-highlight-color",
-          "touch-callout"
-        ]
-      }
-    ],
-    "selector-pseudo-class-no-unknown": [
-      true,
-      {
-        "ignorePseudoClasses": [
-          "at-least",
-          "at-most",
-          "between",
-          "exactly",
-          "global"
-        ]
-      }
-    ],
-    "selector-pseudo-element-no-unknown": [
-      true,
-      {
-        "ignorePseudoElements": [
-          "track",
-          "thumb"
-        ]
-      }
-    ],
-    "selector-type-no-unknown": null,
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null
   }
 }
