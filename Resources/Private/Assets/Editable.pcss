@@ -59,6 +59,11 @@ label.carbon-backenddocument-editable__label {
   appearance: none;
   background: transparent;
   text-align: inherit;
+
+  &::placeholder {
+    text-align: inherit;
+    color: inherit;
+  }
 }
 
 .carbon-backenddocument-editable__select > select,
@@ -74,6 +79,8 @@ label.carbon-backenddocument-editable__label {
 
 .carbon-backenddocument-editable__select > select,
 .carbon-backenddocument-editable__input > textarea {
+  color: inherit;
+
   &:hover,
   &:focus {
     outline-offset: 5px;
