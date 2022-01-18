@@ -15,13 +15,13 @@
         "neos/neos": "^7.0",
         "neos/fusion-afx": "^7.0",
         "sitegeist/slipstream": "^2.0",
-        "carbon/eel": "^1.9"
+        "carbon/eel": "^1.13 || ^2.0"
     },
     "authors": [
         {
             "name": "Jon Uhlmann",
-            "email": "me@jonnitto.ch",
-            "homepage": "https://jonnitto.ch",
+            "email": "hello@uhlmann.pro",
+            "homepage": "https://www.uhlmann.pro",
             "role": "Developer"
         }
     ],
@@ -52,7 +52,6 @@
         }
     },
     "extra": {
-        "marketplace-account": "me@jonnitto.ch",
         "installer-name": "Carbon.BackendDocument",
         "neos": {
             "package-key": "Carbon.BackendDocument"
