@@ -10,7 +10,7 @@ Two small Fusion prototypes to create nice only-backend documents.
 | 2.\*    | 4.\* - 5.\*   |     ✗      |
 | 3.\*    | 7.\*          |     ✗      |
 | 4.\*    | 4.3.\* - 5.\* |     ✓      |
-| 5.\*    | 7.\*          |     ✓      |
+| 5.\*    | 7.\* - 8.\*   |     ✓      |
 
 ## Installation
 
