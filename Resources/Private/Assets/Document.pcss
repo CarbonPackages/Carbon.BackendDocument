@@ -72,7 +72,7 @@
 
 .carbon-backend .carbon-backenddocument-editable--inspector {
   & .carbon-backenddocument-editable__select > select,
-  & .carbon-backenddocument-editable [contenteditable],
+  & [contenteditable],
   & .carbon-backenddocument-editable__input > textarea,
   & .carbon-backenddocument-editable__input::after {
     border-radius: 2px;
@@ -105,6 +105,12 @@
     }
   }
 
+  & .carbon-backenddocument-editable__select {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
   & .ck-focused {
     outline: 0;
   }
@@ -113,10 +119,15 @@
   & .carbon-backenddocument-editable__input > textarea,
   & .carbon-backenddocument-editable__input::after {
     padding: 10px 14px;
+    min-height: 20px;
   }
 
   & .carbon-backenddocument-editable__select > select:focus + svg {
     color: var(--inspector-color-focus);
+  }
+
+  & ::placeholder {
+    color: var(--inspector-placeholder);
   }
 }
 
