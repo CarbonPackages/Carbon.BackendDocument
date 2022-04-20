@@ -61,6 +61,9 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     id = ${this.property + this.node.identifier + Math.randomInt(0, 10000)}
     nativeEditor = ${this.type == 'block' || this.type == 'inline'}
     inBackend = ${this.node.context.inBackend}
+    // https://github.com/sandstorm/Sandstorm.CookiePunch is installed
+    sandstormCookiePunchIsInstalled = ${Configuration.setting('Neos.Neos.fusion.autoInclude')['Sandstorm.CookiePunch']}
+    dataNeverBlock = ${!!this.sandstormCookiePunchIsInstalled}
 
     @if.hasNodeAndPropertyAndType = ${this.node && this.property && Type.isString(this.type)}
 
@@ -77,7 +80,7 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
                 data-slipstream
                 href={StaticResource.uri('Carbon.BackendDocument', 'Public/Editable.css')}
             />
-            <script src={StaticResource.uri('Carbon.BackendDocument', 'Public/Editable.js')} data-slipstream defer></script>
+            <script src={StaticResource.uri('Carbon.BackendDocument', 'Public/Editable.js')} data-slipstream defer data-never-block={props.dataNeverBlock}></script>
             <label
                 @if.set={props.label && !props.nativeEditor}
                 class='carbon-backenddocument-editable__label'
