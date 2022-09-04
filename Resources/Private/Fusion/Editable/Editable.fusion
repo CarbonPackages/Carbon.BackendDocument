@@ -2,7 +2,7 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     node = ${node}
 
     // The name of the property which should be accessed
-    property = null
+    property = ${null}
 
     // Style of input
     // - input = No linebreaks, no tags, but autogrowing
@@ -12,7 +12,7 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     // - inline = Default editor, inline style
     type = 'input'
 
-    // Used for type select and radio 
+    // Used for type select and radio
     options = Neos.Fusion:DataStructure
     // Used for type select
     optionGroups = Neos.Fusion:DataStructure
@@ -30,16 +30,16 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     */
 
     // Prepend a label
-    label = null
+    label = ${null}
 
     // Overwrite the placeholder from the nodetype definition
-    placeholder = null
+    placeholder = ${null}
 
     // Add your own CSS class if you want to override some stylings
-    class = null
+    class = ${null}
 
     // Add your own style
-    style = null
+    style = ${null}
 
     // If set to true and used under Carbon.BackendDocument:Document, the styling will adapt to the inspector style
     inspectorStyle = true
@@ -49,7 +49,7 @@ prototype(Carbon.BackendDocument:Editable) < prototype(Neos.Fusion:Component) {
     includeCSS = true
 
     // Fallback for the frontend if no value is given
-    fallback = null
+    fallback = ${null}
 
     // Switch if the value should be editable
     editable = true

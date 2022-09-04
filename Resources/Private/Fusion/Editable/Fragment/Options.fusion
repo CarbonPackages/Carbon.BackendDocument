@@ -1,7 +1,7 @@
 prototype(Carbon.BackendDocument:Editable.Fragment.Options) < prototype(Neos.Fusion:Component) {
-    options = null
-    optionGroups = null
-    value = null
+    options = ${null}
+    optionGroups = ${null}
+    value = ${null}
 
     hasOptions = ${Carbon.Array.check(this.options)}
     hasGroup = ${Carbon.Array.check(this.optionGroups)}

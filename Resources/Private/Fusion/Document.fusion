@@ -1,8 +1,8 @@
 prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
     singleline = true
-    content = null
-    style = null
-    headTags = null
+    content = ${null}
+    style = ${null}
+    headTags = ${null}
     title = ${q(node).property('title')}
     namespace = 'carbon-backend'
 
@@ -20,11 +20,11 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
     }
 
     // Inkl. Tags
-    javascripts = null
+    javascripts = ${null}
     frontendRedirect = Neos.Fusion:DataStructure {
         node = ${q(documentNode).parent().get(0)}
-        section = null
-        additionalParams = null
+        section = ${null}
+        additionalParams = ${null}
         statusCode = 301
     }
 
