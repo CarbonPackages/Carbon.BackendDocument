@@ -12,10 +12,10 @@
         "backend"
     ],
     "require": {
-        "neos/neos": "^7.0 || ^8.0",
-        "neos/fusion-afx": "^7.0 || ^8.0",
+        "neos/neos": "^8.3",
+        "neos/fusion-afx": "^8.3",
         "sitegeist/slipstream": "^2.0",
-        "carbon/eel": "^1.13 || ^2.0"
+        "carbon/eel": "^2.14"
     },
     "authors": [
         {

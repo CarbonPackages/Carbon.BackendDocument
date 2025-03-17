@@ -3,6 +3,8 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
     content = ${null}
     style = ${null}
     headTags = ${null}
+    htmlClass = ${null}
+    bodyClass = ${null}
     title = ${q(node).property('title')}
     namespace = 'carbon-backend'
 
@@ -90,19 +92,19 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
                 httpResponseHead.headers.X-Slipstream = 'enabled'
                 doctype = '<!DOCTYPE html>'
                 markup = afx`
-                    <html class={['-backend -js', props.singleline ? '-full-height': null]}>
+                    <html class={Carbon.String.classNames('-backend -js', props.singleline ? '-full-height': null, props.htmlClass)}>
                         <head>
                             <meta charset='UTF-8' />
                             <title>{props.title}</title>
                             {props.neosBackendHead}
                             <link rel='stylesheet' href={StaticResource.uri('Carbon.BackendDocument', 'Public/Document.css')} />
                             <style @if.set={props.style}>
-                                {props.style }
+                                {props.style}
                             </style>
                             {props.headTags}
                         </head>
                         <body
-                            class={[props.namespace, 'neos-backend', props.singleline ? '-full-height': null]}
+                            class={Carbon.String.classNames(props.namespace, 'neos-backend', props.singleline ? '-full-height': null, props.bodyClass)}
                             style={Array.join(Array.filter([props.cssVariables, props.documentStyle], string => !!string),';')}
                         >
                             <div class={props.namespace + '--content' + (props.singleline ? '-single' : '')}>
