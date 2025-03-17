@@ -17,15 +17,15 @@ indent_size = 4
 indent_size = 2
 
 # All kind of CSS files
-[*.{scss,sass,css,pcss,styl,less}]
+[*.css]
 max_line_length = 300
 indent_size = 2
 
 # All kind of JS files
-[*.{js,jsx,mjs,mjsx,ts,tsx,mts,mtsx,vue,mvue}]
+[*.js]
 max_line_length = 120
 
-[*.{note,md,edit,read}]
+[*.md]
 max_line_length = 200
 trim_trailing-whitespace = false
 indent_size = 2

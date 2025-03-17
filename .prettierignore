@@ -1,2 +1,4 @@
 composer.json
 *.noLinter.*
+Resources/Public/*
+pnpm-lock.yaml

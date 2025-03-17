@@ -1,1 +1,110 @@
-!function(){"use strict";const e=".carbon-backenddocument-editable";function t(e,t){const n=t.value.trim();!function(e){let t;const n="Carbon.BackendDocument:Editable";e||(e={}),window.CustomEvent?t=new CustomEvent(n,{detail:e}):(t=document.createEvent("CustomEvent"),t.initCustomEvent(n,!0,!0,e)),document.dispatchEvent(t)}({element:t,property:e.dataset.__neosProperty,value:n}),e.hasChildNodes()&&1===e.childNodes.length&&1===e.childNodes[0].nodeType?e.childNodes[0].innerText=n:e.innerText=n}function n(t,n,l){document.addEventListener(t,(t=>{const a=t.target;a.matches(e+n)&&"function"==typeof l&&l(a,t)}))}function l(t,n){Array.from(document.querySelectorAll(e+t)).forEach((e=>{n(e)}))}function a(e,t){const n=e.dataset;if(n.neosInlineEditorIsInitialized){const e=n.neosPlaceholder;e&&t(e)}else setTimeout((()=>{a(e,t)}),500)}setTimeout((()=>{l("__select select",(t=>{if(!t.value){const n=t.parentElement.nextElementSibling,l=t.querySelector(e+"__selectplaceholder");l.innerHTML||a(n,(e=>{l.innerText=e}))}})),l("__input",(e=>{const t=e.firstElementChild,n=e.nextElementSibling;let l=t.placeholder;e.dataset.replicatedValue=t.value,l&&!t.value&&(e.dataset.replicatedValue=l),l||a(n,(n=>{l=n,t.placeholder=l,t.value||(e.dataset.replicatedValue=l)}))}))}),500),n("change","__select select",(e=>{t(e.parentElement.nextElementSibling,e)})),n("change","__radio input",(n=>{t(n.closest(e+"__radio").nextElementSibling,n)})),n("input","__input textarea",(e=>{const n=e.parentElement,l=n.nextElementSibling,a=e.placeholder;n.dataset.replicatedValue=e.value,t(l,e),e.value||(n.dataset.replicatedValue=a)})),n("keypress","__input textarea",((e,t)=>{"13"==t.keyCode&&t.preventDefault()}))}();
+(() => {
+  // Resources/Private/Assets/Editable.js
+  var namespace = ".carbon-backenddocument-editable";
+  function triggerEvent(options) {
+    let event;
+    const name = "Carbon.BackendDocument:Editable";
+    if (!options) {
+      options = {};
+    }
+    if (window.CustomEvent) {
+      event = new CustomEvent(name, { detail: options });
+    } else {
+      event = document.createEvent("CustomEvent");
+      event.initCustomEvent(name, true, true, options);
+    }
+    document.dispatchEvent(event);
+  }
+  function updateValue(editor, element) {
+    const value = element.value.trim();
+    triggerEvent({
+      element,
+      property: editor.dataset.__neosProperty,
+      value
+    });
+    if (editor.hasChildNodes() && editor.childNodes.length === 1 && editor.childNodes[0].nodeType === 1) {
+      editor.childNodes[0].innerText = value;
+    } else {
+      editor.innerText = value;
+    }
+  }
+  function addEvent(eventName, selector, callback) {
+    document.addEventListener(eventName, (event) => {
+      const target = event.target;
+      if (target.matches(namespace + selector) && typeof callback == "function") {
+        callback(target, event);
+      }
+    });
+  }
+  function eachElement(selector, callback) {
+    Array.from(document.querySelectorAll(namespace + selector)).forEach((element) => {
+      callback(element);
+    });
+  }
+  function placeholderFromEditor(editor, callback) {
+    const dataset = editor.dataset;
+    if (dataset.neosInlineEditorIsInitialized) {
+      const placeholder = dataset.neosPlaceholder;
+      if (placeholder) {
+        callback(placeholder);
+      }
+      return;
+    }
+    setTimeout(() => {
+      placeholderFromEditor(editor, callback);
+    }, 500);
+  }
+  setTimeout(() => {
+    eachElement("__select select", (select) => {
+      if (!select.value) {
+        const editor = select.parentElement.nextElementSibling;
+        const option = select.querySelector(namespace + "__selectplaceholder");
+        if (!option.innerHTML) {
+          placeholderFromEditor(editor, (neosPlaceholder) => {
+            option.innerText = neosPlaceholder;
+          });
+        }
+      }
+    });
+    eachElement("__input", (element) => {
+      const textarea = element.firstElementChild;
+      const editor = element.nextElementSibling;
+      let placeholder = textarea.placeholder;
+      element.dataset.replicatedValue = textarea.value;
+      if (placeholder && !textarea.value) {
+        element.dataset.replicatedValue = placeholder;
+      }
+      if (!placeholder) {
+        placeholderFromEditor(editor, (neosPlaceholder) => {
+          placeholder = neosPlaceholder;
+          textarea.placeholder = placeholder;
+          if (!textarea.value) {
+            element.dataset.replicatedValue = placeholder;
+          }
+        });
+      }
+    });
+  }, 500);
+  addEvent("change", "__select select", (select) => {
+    updateValue(select.parentElement.nextElementSibling, select);
+  });
+  addEvent("change", "__radio input", (radio) => {
+    const editor = radio.closest(namespace + "__radio").nextElementSibling;
+    updateValue(editor, radio);
+  });
+  addEvent("input", "__input textarea", (textarea) => {
+    const element = textarea.parentElement;
+    const editor = element.nextElementSibling;
+    const placeholder = textarea.placeholder;
+    element.dataset.replicatedValue = textarea.value;
+    updateValue(editor, textarea);
+    if (!textarea.value) {
+      element.dataset.replicatedValue = placeholder;
+    }
+  });
+  addEvent("keypress", "__input textarea", (textarea, event) => {
+    if (event.keyCode == "13") {
+      event.preventDefault();
+    }
+  });
+})();

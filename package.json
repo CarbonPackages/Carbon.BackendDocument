@@ -6,31 +6,24 @@
     "type": "git",
     "url": "git://github.com/CarbonPackages/Carbon.BackendDocument.git"
   },
-  "browserslist": [
-    "defaults",
-    "not ie 11",
-    "not dead"
-  ],
   "devDependencies": {
-    "@babel/core": "^7.17.8",
-    "@babel/preset-env": "^7.16.11",
-    "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-node-resolve": "^13.1.3",
-    "autoprefixer": "^10.4.4",
-    "browserslist": "^4.20.2",
-    "cssnano": "^5.1.7",
-    "postcss": "^8.4.31",
-    "postcss-nested": "^5.0.6",
-    "prettier": "^2.6.2",
-    "rollup": "^2.70.1",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-terser": "^7.0.2",
-    "stylelint": "^14.6.1",
-    "stylelint-config-standard": "^25.0.0"
+    "lightningcss-cli": "^1.29.3",
+    "prettier": "^3.5.3",
+    "stylelint": "^16.16.0",
+    "stylelint-config-standard": "^37.0.0"
   },
   "scripts": {
-    "start": "rollup --config --watch",
-    "build": "rollup --config",
-    "pipeline": "yarn install --silent --non-interactive;rollup --config --environment production"
+    "js": "esbuild Resources/Private/Assets/*.js --bundle --outdir=Resources/Public",
+    "css": "lightningcss Resources/Private/Assets/*.css --minify --bundle --targets \">= 0.25%\" -d Resources/Public",
+    "build": "pnpm js && pnpm css"
+  },
+  "dependencies": {
+    "esbuild": "^0.25.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "lightningcss-cli"
+    ]
   }
 }
