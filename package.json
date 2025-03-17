@@ -13,7 +13,7 @@
     "stylelint-config-standard": "^37.0.0"
   },
   "scripts": {
-    "js": "esbuild Resources/Private/Assets/*.js --bundle --outdir=Resources/Public",
+    "js": "esbuild Resources/Private/Assets/*.js --bundle --minify --outdir=Resources/Public",
     "css": "lightningcss Resources/Private/Assets/*.css --minify --bundle --targets \">= 0.25%\" -d Resources/Public",
     "build": "pnpm js && pnpm css"
   },
