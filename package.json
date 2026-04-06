@@ -7,10 +7,10 @@
     "url": "git://github.com/CarbonPackages/Carbon.BackendDocument.git"
   },
   "devDependencies": {
-    "lightningcss-cli": "^1.29.3",
-    "prettier": "^3.5.3",
-    "stylelint": "^16.16.0",
-    "stylelint-config-standard": "^37.0.0"
+    "lightningcss-cli": "^1.32.0",
+    "prettier": "^3.8.1",
+    "stylelint": "^17.6.0",
+    "stylelint-config-standard": "^40.0.0"
   },
   "scripts": {
     "js": "esbuild Resources/Private/Assets/*.js --bundle --minify --outdir=Resources/Public",
@@ -18,12 +18,13 @@
     "build": "pnpm js && pnpm css"
   },
   "dependencies": {
-    "esbuild": "^0.25.1"
+    "esbuild": "^0.28.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
       "lightningcss-cli"
     ]
-  }
+  },
+  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
 }
