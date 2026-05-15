@@ -73,8 +73,8 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
     }
 
     renderer = Neos.Fusion:Case {
-        isLive {
-            condition = ${node.context.live && props.frontendRedirect.node}
+        isLive300 {
+            condition = ${node.context.live && props.frontendRedirect.node && props.frontendRedirect.statusCode < 400}
             renderer = Neos.Fusion:Http.Message {
                 httpResponseHead {
                     statusCode = ${props.frontendRedirect.statusCode}
@@ -86,6 +86,14 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
                 }
             }
         }
+        isLive400 {
+            condition = ${node.context.live}
+            renderer = Neos.Fusion:Renderer {
+                @context.statusCode = ${props.frontendRedirect.statusCode < 400 ? 404 : props.frontendRedirect.statusCode}
+                renderPath = '/error'
+            }
+        }
+
         default {
             condition = true
             renderer = Neos.Fusion:Http.Message {
