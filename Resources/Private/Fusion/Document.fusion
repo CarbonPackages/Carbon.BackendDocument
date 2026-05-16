@@ -27,7 +27,7 @@ prototype(Carbon.BackendDocument:Document) < prototype(Neos.Fusion:Component) {
         node = ${q(documentNode).parent().get(0)}
         section = ${null}
         additionalParams = ${null}
-        statusCode = 301
+        statusCode = ${Configuration.setting('Carbon.BackendDocument.frontendRedirect.statusCode') || 301}
     }
 
     neosBackendHead = Neos.Fusion:Join {

@@ -3,3 +3,8 @@ Neos:
     fusion:
       autoInclude:
         Carbon.BackendDocument: true
+
+Carbon:
+  BackendDocument:
+    frontendRedirect:
+      statusCode: 301
