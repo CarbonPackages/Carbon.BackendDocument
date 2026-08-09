@@ -102,6 +102,7 @@ label.carbon-backenddocument-editable__label {
     resize: none;
     overflow: hidden;
     grid-area: 1 / 1 / 2 / 2;
+    min-height: 1em;
   }
 }
 
